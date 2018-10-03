@@ -1,7 +1,7 @@
 
 public class Merge_Sort {
 
-	//1개 될떄까지 sort
+	//끝까지 쪼개질떄까지 sort
 	public void sort(int[] A, int left, int right) {
 		if (left < right) {
 			int mid = (left + right) / 2; // 절반기준
