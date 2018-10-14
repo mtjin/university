@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) {
-	String line = ""; // 0은 100개txt 1은 1000개txt 2는 10000개txt
+	String line = ""; 
 	String line2 = "";
 	int i = 0;
 	
@@ -21,7 +21,7 @@ public class Main {
 	int Counting_input100[] = new int[100];
 	int Counting_input1000[] = new int[1000];
 
-
+	//파일 읽어와서 정수형배열에 저장
 	try {
 		File file_100 = new File("test_100.txt");
 		File file_1000 = new File("test_1000.txt");
@@ -31,37 +31,33 @@ public class Main {
 		BufferedReader bufReader2 = new BufferedReader(filereader2);
 
 		while ((line = bufReader.readLine()) != null) {
-			// System.out.println(line);
+			
 
 			MaxHeap_input100[i] = Integer.parseInt(line);
 			MinHeap_input100[i] = Integer.parseInt(line);
 			Counting_input100[i++] = Integer.parseInt(line);
 			
-			// size++; // 읽어온 개수
+		
 		}
 		i = 0;
 		while ((line2 = bufReader2.readLine()) != null) {
-			// System.out.println(line);
+		
 			MaxHeap_input1000[i] = Integer.parseInt(line2);
 			MinHeap_input1000[i] = Integer.parseInt(line2);
 			Counting_input1000[i++] = Integer.parseInt(line2);
 			
-			// size2++; // 읽어온 개수
+			
 		}
 
 	} catch (IOException e) {
 		System.out.println(e);
 	}
-	/*for(int j = 0; j<MaxHeap_input100.length; j++) {
-		System.out.println(MaxHeap_input100[j]);
-	}*/
+	
 	
 	Heap_Sort heap = new Heap_Sort();
 	Counting_Sort counting = new Counting_Sort();
 
-	/*for(int j=0; j<MaxHeap_input100.length; j++) {
-		System.out.println(MaxHeap_input100[j]);
-	}*/
+	//소팅시작
 	System.out.println("start 100 MAX_HEAP sort");
 	heap.maxHeapSort(MaxHeap_input100);
 	System.out.println("start 1000 MAX_HEAP sort");
@@ -81,7 +77,7 @@ public class Main {
 		BufferedWriter out_100 = new BufferedWriter(new FileWriter("result100.txt"));
 		BufferedWriter out_1000 = new BufferedWriter(new FileWriter("result1000.txt"));
 
-		// merge sort 출력
+		// MAX heap sort 출력
 		out_100.write("Below is MAX Heap_Sort 100 result\n");
 		for (i = 0; i < MaxHeap_input100.length; i++) {
 			out_100.write(MaxHeap_input100[i] + "");
@@ -96,6 +92,7 @@ public class Main {
 		out_100.write("--------------------------------------------------\n");
 		out_1000.write("--------------------------------------------------\n");
 		
+		//MIN heap sort 출력
 		out_100.write("Below is MIN Heap_Sort 100 result\n");
 		for (i = 0; i < MinHeap_input100.length; i++) {
 			out_100.write(MinHeap_input100[i] + "");
@@ -110,6 +107,7 @@ public class Main {
 		out_100.write("--------------------------------------------------\n");
 		out_1000.write("--------------------------------------------------\n");
 		
+		//Coungting sort 출력
 		out_100.write("Below is Counting_Sort 100 result\n");
 		for (i = 0; i < Counting_input100.length; i++) {
 			out_100.write(Counting_input100[i] + "");
