@@ -62,11 +62,18 @@ public class Main {
 	/*for(int j=0; j<MaxHeap_input100.length; j++) {
 		System.out.println(MaxHeap_input100[j]);
 	}*/
-	System.out.println("start 100 Merge sort");
+	System.out.println("start 100 MAX_HEAP sort");
 	heap.maxHeapSort(MaxHeap_input100);
-	System.out.println("start 1000 Merge sort");
+	System.out.println("start 1000 MAX_HEAP sort");
 	heap.maxHeapSort(MaxHeap_input1000);
-	
+	System.out.println("start 100 MIN_HEAP sort");
+	heap.minHeapSort(MinHeap_input100);
+	System.out.println("start 1000 MIN_HEAP sort");
+	heap.minHeapSort(MinHeap_input1000);
+	System.out.println("start 100 COUNTING sort");
+	counting.countingSort(Counting_input100);
+	System.out.println("start 1000 COUNTING sort");
+	counting.countingSort(Counting_input1000);
 	
 	
 	//파일 출력
@@ -75,12 +82,12 @@ public class Main {
 		BufferedWriter out_1000 = new BufferedWriter(new FileWriter("result1000.txt"));
 
 		// merge sort 출력
-		out_100.write("Below is Heap_Sort 100 result\n");
+		out_100.write("Below is MAX Heap_Sort 100 result\n");
 		for (i = 0; i < MaxHeap_input100.length; i++) {
 			out_100.write(MaxHeap_input100[i] + "");
 			out_100.newLine();
 		}
-		out_1000.write("Below is Heap_Sort 1000 result\n");
+		out_1000.write("Below is MAX Sort 1000 result\n");
 		for (i = 0; i < MaxHeap_input1000.length; i++) {
 			out_1000.write(MaxHeap_input1000[i] + "");
 			out_1000.newLine();
@@ -89,7 +96,30 @@ public class Main {
 		out_100.write("--------------------------------------------------\n");
 		out_1000.write("--------------------------------------------------\n");
 		
-
+		out_100.write("Below is MIN Heap_Sort 100 result\n");
+		for (i = 0; i < MinHeap_input100.length; i++) {
+			out_100.write(MinHeap_input100[i] + "");
+			out_100.newLine();
+		}
+		out_1000.write("Below is MIN Heap_Sort 1000 result\n");
+		for (i = 0; i < MinHeap_input1000.length; i++) {
+			out_1000.write(MinHeap_input1000[i] + "");
+			out_1000.newLine();
+		}
+		
+		out_100.write("--------------------------------------------------\n");
+		out_1000.write("--------------------------------------------------\n");
+		
+		out_100.write("Below is Counting_Sort 100 result\n");
+		for (i = 0; i < Counting_input100.length; i++) {
+			out_100.write(Counting_input100[i] + "");
+			out_100.newLine();
+		}
+		out_1000.write("Below is Counting_Sort 1000 result\n");
+		for (i = 0; i < Counting_input1000.length; i++) {
+			out_1000.write(Counting_input1000[i] + "");
+			out_1000.newLine();
+		}
 		
 	
 		
