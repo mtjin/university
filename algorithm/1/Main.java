@@ -38,6 +38,7 @@ public class Main {
 		BubbleSort bubble = new BubbleSort();
 		SelectionSort selection = new SelectionSort();
 		
+		//파일입력
 		try {
 			File file_100 = new File("test_100.txt");
 			File file_1000 = new File("test_1000.txt");

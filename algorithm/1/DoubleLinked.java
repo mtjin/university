@@ -9,7 +9,7 @@ public class DoubleLinked {
 	}
 	
 	public class Node{
-		public Node next;
+		public Node next;  //데이터가 10000개짜리 소팅하는데 너무 오래걸려서 getter,setter로 접근해서 느린가해서 public으로 바꿔서 해봤으나 똑같이 느림(원래 느린거였음)
 		public Node prev;
 		public int data;
 		Node(int data){
