@@ -172,7 +172,7 @@ NOTES:
  *   Rating: 1
  */
 int bitAnd(int x, int y) {
-    return (x&y);
+    return ~(~x | ~y);
 }
 /* 
  * getByte - Extract byte n from word x
@@ -194,7 +194,7 @@ int getByte(int x, int n) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-  return 2;
+  return (((x&(0x8<<28))>>n) <<1)^(x>>n);
 }
 /*
  * bitCount - returns count of number of 1's in word
@@ -204,11 +204,25 @@ int logicalShift(int x, int n) {
  *   Rating: 4
  */
 int bitCount(int x) {
-  return 2;
+  int result;
+  int y = 0x1;
+  y |= y<<8;
+  y |= y<<16;
+  result = x & y;
+  result += (x>>1) & y;
+  result += (x>>2) & y;
+  result += (x>>3) & y;
+  result += (x>>4) & y;
+  result += (x>>5) & y;
+  result += (x>>6) & y;
+  result += (x>>7) & y;
+  result += result >> 16;
+  result += result >> 8;
+  return (result & 0xFF);
 }
 //#include "bang.c"
 //#include "tmin.c"
-/*
+/*	;';
  * isZero - returns 1 if x == 0, and 0 otherwise 
  *   Examples: isZero(5) = 0, isZero(0) = 1
  *   Legal ops: ! ~ & ^ | + << >>
@@ -216,7 +230,7 @@ int bitCount(int x) {
  *   Rating: 1
  */
 int isZero(int x) {
-  return 2;
+  return !(x);
 }
 /* 
  * isEqual - return 1 if x == y, and 0 otherwise 
@@ -226,7 +240,7 @@ int isZero(int x) {
  *   Rating: 2
  */
 int isEqual(int x, int y) {
-  return 2;
+  return !(x^y);
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
@@ -238,7 +252,10 @@ int isEqual(int x, int y) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
-  return 2;
+	int tmp = 32 + (~n+1);
+	int result = x << tmp;
+	result = (result >> tmp)^x;
+	return !result;
 }
 //#include "divpwr2.c"
 //#include "negate.c"
@@ -251,7 +268,13 @@ int fitsBits(int x, int n) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+	int a = (x>>31) & 1;
+	int b = (y>>31) & 1;
+	int t1 = y + (~x + 1);
+	int t2 = (t1 >> 31) & 1;
+
+	int result = (a & !b) | (!(a ^ b) & !t2);
+	return result;
 }
 /* 
  * rotateLeft - Rotate x to the left by n
@@ -262,7 +285,21 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 3 
  */
 int rotateLeft(int x, int n) {
-  return 2;
+
+	int a, b;
+	a = (x >> (32 + ~n)) >> 1;
+	b = ~((~0) << n );
+	a = a & b;
+	x = x << n;
+	return x | a;
+	//over ops
+	/*	int MSB;
+	int result;
+	MSB = (x&(1<<31));
+	result = (((x<<n) | ((x&((((~0&(0x8<<28))>>1) <<1)^(~0>>1)))>>(33 + (~n)))) | ((((MSB&(0x8<<28))>>(33 + (~n))) <<1) ^ (MSB>>(33+(~n)))));
+	return result;
+	*/
+
 }
 //#include "ilog2.c"
 //#include "float_neg.c"
