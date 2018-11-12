@@ -36,7 +36,7 @@ public class HashTable {
 		i = 0;
 		while(h[key] != 0) {
 			i++;
-			key = ((x % size) + i * ((x % size2))) % size; //ÇØ½Ì
+			key = ((x % size) + i * (x % size2)+1) % size; //ÇØ½Ì
 			collision_count++;
 		}
 	
@@ -83,7 +83,7 @@ public class HashTable {
 			}
 			else {
 				i++;
-				key = ((x % size) + i * (x % size2)) % size;
+				key = ((x % size) + i * (x % size2)+1) % size;
 			}
 		}
 		return 0;
@@ -126,7 +126,7 @@ public class HashTable {
 			}
 			else {
 				i++;
-				key = ((x % size) + i * (x % size2)) % size;
+				key = ((x % size) + i * (x % size2)+1) % size;
 			}
 		}
 	}
