@@ -91,9 +91,9 @@ public class Main {
 		try {
 			System.out.println("================================================");
 			System.out.println("START Write File");
-			BufferedWriter out1 = new BufferedWriter(new FileWriter("Result1.txt"));
+			BufferedWriter out1 = new BufferedWriter(new FileWriter("Output1.txt"));
 		
-			out1.write("Below is  result1 \n");
+			out1.write("Below is  Output1 \n");
 			out1.newLine();
 		
 			while(totalNode.next != null) {
@@ -118,9 +118,9 @@ public class Main {
 		try {
 			System.out.println("================================================");
 			System.out.println("START Write File2");
-			BufferedWriter out1 = new BufferedWriter(new FileWriter("Result2.txt"));
+			BufferedWriter out1 = new BufferedWriter(new FileWriter("Output2.txt"));
 		
-			out1.write("Below is  result2 \n");
+			out1.write("Below is  Output2 \n");
 			out1.newLine();
 		
 			while(totalNode.next != null) {
