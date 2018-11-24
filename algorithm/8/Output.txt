@@ -1,0 +1,3 @@
+Below is  Output of LCS 
+
+BCBA
