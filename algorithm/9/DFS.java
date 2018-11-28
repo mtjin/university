@@ -12,6 +12,8 @@ public class DFS {
 				visit(graphMatrix, vertex[i], vertex);
 			}
 		}
+		
+		//visit(graphMatrix, vertex[i], vertex);   //위 코드를 지우고 이 코드한줄만 있어도 된다. (vertex[i] 즉 시작점으로 할 vertex로 넘겨주면됨 
 	}
 	
 	public void visit(int[][] graphMatrix, Vertex u, Vertex[] vertex) {
