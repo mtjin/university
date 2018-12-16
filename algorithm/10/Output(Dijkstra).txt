@@ -1,0 +1,6 @@
+0	distatnce : 0
+1<-2<-0	distatnce :8
+2<-0	distatnce :5
+3<-1<-2<-0	distatnce :9
+4<-0	distatnce :7
+
