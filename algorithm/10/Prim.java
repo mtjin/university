@@ -59,11 +59,11 @@ public class Prim {
 	public void makePrim(int[][] graph) {
 		int parent[] = new int[vertexNum];
 		int key[] = new int[vertexNum];
-		boolean mstSet[] = new boolean[vertexNum];
+		boolean isFinish[] = new boolean[vertexNum];
 
 		for (int i = 0; i < vertexNum; i++) {
 			key[i] = Integer.MAX_VALUE;
-			mstSet[i] = false;
+			isFinish[i] = false;
 		}
 
 		key[0] = 0;
@@ -72,13 +72,13 @@ public class Prim {
 
 		for (int count = 0; count < vertexNum - 1; count++) {
 
-			int u = minimunKey(key, mstSet);
+			int u = minimunKey(key, isFinish);
 
-			mstSet[u] = true;
+			isFinish[u] = true;
 
-			//키값과 부모 인덱스를 인접행렬로부터 뽑은 vertex로 바꿔줌
+			//키값과 부모 인덱스를 인접행렬로부터 뽑은 vertex로 저장해줌
 			for (int v = 0; v < vertexNum; v++) {
-				if (graph[u][v] != 0 && !mstSet[v] && graph[u][v] < key[v]) {
+				if (graph[u][v] != 0 && !isFinish[v] && graph[u][v] < key[v]) {
 
 					parent[v] = u;
 					key[v] = graph[u][v];

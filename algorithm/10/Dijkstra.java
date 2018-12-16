@@ -8,7 +8,7 @@ public class Dijkstra {
 	
 	
 	static String result = "";
-	public static final int NO_PARENT = -1;
+	public static final int noParent = -1;
 	int flag = 0;
 	int heap_size = 0;
 	
@@ -16,36 +16,31 @@ public class Dijkstra {
 		int nVertices = adjacentMatrix[0].length;
 
 		//가장 짧은 distance 담을 배열 생성
-		int[] shortestDistances = new int[nVertices];
+		int[] minDist = new int[nVertices];
 		//해당 vertex가 추가됬는지
 		boolean[] added = new boolean[nVertices]; 
 
 		//초기화
 		for (int vertexIndex = 0; vertexIndex < nVertices; vertexIndex++) {
-			shortestDistances[vertexIndex] = Integer.MAX_VALUE;
+			minDist[vertexIndex] = Integer.MAX_VALUE;
 			added[vertexIndex] = false;
 		}
 
-		shortestDistances[startVertex] = 0;
+		minDist[startVertex] = 0;
 		int[] parents = new int[nVertices];
 		
 		//시작 vertex , 부모없는
-		parents[startVertex] = NO_PARENT;
+		parents[startVertex] = noParent;
 
 		//가장 짧은 경로 find
 		for (int i = 1; i < nVertices; i++) {
 
-			// Pick the minimum distance vertex
-			// from the set of vertices not yet
-			// processed. nearestVertex is
-			// always equal to startNode in
-			// first iteration.
 			int nearVertex = -1;
-			int shortestDistance = Integer.MAX_VALUE;
+			int tmpMinDist = Integer.MAX_VALUE;
 			for (int vertexIndex = 0; vertexIndex < nVertices; vertexIndex++) {
-				if (!added[vertexIndex] && shortestDistances[vertexIndex] < shortestDistance) {
+				if (!added[vertexIndex] && minDist[vertexIndex] < tmpMinDist) {
 					nearVertex = vertexIndex;
-					shortestDistance = shortestDistances[vertexIndex];
+					tmpMinDist = minDist[vertexIndex];
 				}
 			}
 
@@ -56,14 +51,14 @@ public class Dijkstra {
 			for (int vertexIndex = 0; vertexIndex < nVertices; vertexIndex++) {
 				int edgeDistance = adjacentMatrix[nearVertex][vertexIndex];
 
-				if (edgeDistance > 0 && ((shortestDistance + edgeDistance) < shortestDistances[vertexIndex])) {
+				if (edgeDistance > 0 && ((tmpMinDist + edgeDistance) < minDist[vertexIndex])) {
 					parents[vertexIndex] = nearVertex;
-					shortestDistances[vertexIndex] = shortestDistance + edgeDistance;
+					minDist[vertexIndex] = tmpMinDist + edgeDistance;
 				}
 			}
 		}
 
-		printSolution(startVertex, shortestDistances, parents);
+		printSolution(startVertex, minDist, parents);
 	}
 
 	//print
@@ -112,12 +107,12 @@ public class Dijkstra {
 	public  void printPath(int currentVertex, int[] parents) {
 
 		//아직 실행 안한 vertex경우
-		if (currentVertex == NO_PARENT) {
+		if (currentVertex == noParent) {
 			return;
 		}
 		result += currentVertex + "";
 		System.out.print(currentVertex );
-		if(parents[currentVertex] != NO_PARENT) {
+		if(parents[currentVertex] != noParent) {
 			System.out.print("<-");
 			result += "<-";
 		}
