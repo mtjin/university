@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Card">
+    <Position X="3.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Card.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Computer">
+    <Position X="1.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Computer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Deck">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAACAAkAGCAAABAEAAAAAA=</HashCode>
+      <FileName>Deck.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluator">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Evaluator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameView">
+    <Position X="3.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hand">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AFAAAAAAACAAAAAAAAhAAAAQAEQAEAQAAAAAAAAAACA=</HashCode>
+      <FileName>Hand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="1.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAAAEAAAAQgEAAQAgAgAlAEAQAAAAAEAQgAEAY=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
