@@ -10,7 +10,7 @@ public class NooToCTest {
     	String s = "";
 		NooToC ntc = null;
     	
-		String filePath = "test1.noo";
+		String filePath = "C:/Users/user/Desktop/PLASLAB/test1.noo";
     	try (FileInputStream fstream= new FileInputStream(filePath);){		
     		byte[] rb = new byte[fstream.available()];
     		while(fstream.read(rb) != -1) {}
