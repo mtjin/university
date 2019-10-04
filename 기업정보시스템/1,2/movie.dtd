@@ -1,0 +1,26 @@
+<!ELEMENT movies (movie*)>  //최상위 요소는 movies로 한다, Movies요소안에 movie요소가 여러 번 반복하여 나타날 수 있다
+<!ELEMENT movie (name, company, hero, price, date)> //Movie요소에는 name, company,hero, price, date 자식 요소가 존재
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT hero (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT company (#PCDATA)>
+<!ELEMENT hero (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT gu (#PCDATA)>
+<!ELEMENT dong (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT fax ANY>  //Fax 요소는 회사에 따라서 값을 가질 수도 있다.
+<!ELEMENT url EMPTY> // url 요소는 데이터는 가지지 않는다.	
+
+
+<!ATTLIST company name CDATA  #REQUIRED> /Company 요소는 name 속성을 가지는데 그 값은 반드시 존재한다  CDATA => 문자열
+<!ATTLIST url href CDATA #IMPLIED> //Url요소는 href 속성을 가지는데 그 값은 존재해도 되고 없어도 된다.
+<!ATTLIST price unit CDATA  #FIXED "원"> //Price 요소는 unit 이라는 속성을 가지는데, 그 값은 항상 “원”이라는 단위만 올 수 있다.
+
+

@@ -1,0 +1,20 @@
+<!ELEMENT movies (movie*)>
+<!ELEMENT movie (name, company, hero+, price, date)> 
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT hero (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT company (address, phone, fax, url)>
+<!ELEMENT date (year, month, day)>
+<!ELEMENT address (city, gu, dong)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT gu (#PCDATA)>
+<!ELEMENT dong (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT fax ANY>  
+<!ELEMENT url EMPTY> 
+<!ATTLIST company name CDATA  #REQUIRED>
+<!ATTLIST url href CDATA #IMPLIED>
+<!ATTLIST price unit CDATA  #FIXED "원"> 
