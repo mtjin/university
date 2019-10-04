@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE movies SYSTEM "movies.dtd">
+<movies>
+	<movie>
+		<name>AAA</name>
+		<company name ="whatthe">
+			<address>
+				<city>city</city>
+				<gu>gu</gu>
+				<dong>dong</dong>
+			</address>
+			<phone>phone</phone>
+			<fax>fax</fax>
+			<url href ="www.google.com"></url>
+		</company>
+		<hero>CCC</hero>
+		<price>2000</price>
+		<date>
+			<year>1995</year>
+			<month>2</month>
+			<day>4</day>
+		</date>
+	</movie>
+
+	<movie>
+		<name>jin</name>
+		<company name ="monster">
+			<address>
+				<city>seoul</city>
+				<gu>yeongdengpo</gu>
+				<dong>dongs</dong>
+			</address>
+			<phone>010-1234-1223</phone>
+			<fax>fax</fax>
+			<url></url>
+		</company>
+		<hero>HERO</hero>
+		<hero>IROn MAN</hero>
+		<price unit ="원">1000</price>
+		<date>
+			<year>2002</year>
+			<month>6</month>
+			<day>12</day>
+		</date>
+	</movie>
+</movies>
